@@ -15,6 +15,7 @@ function CreateHostEntry(hostname,ip) {
 }
 
 function CreateServiceEntry(service_name,hostname,ip) {
+  console.log(service_name + hostname + ip)
   var sys = require('sys')
   var exec = require('child_process').exec;
   var base_path = "/etc/nagios/services"

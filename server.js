@@ -12,9 +12,11 @@ http.createServer(function(request, response) {
         var query = url_parts.query;
         if(query['hostname'] != undefined) {
           if(query['service'] != undefined){
-            console.log(nagios.CreateHostEntry(query['hostname'],query['ip']));
-          } else {
+            console.log("Adding service entry")
 	    console.log(nagios.CreateServiceEntry(query['service'],query['hostname'],query['ip']));
+          } else {
+            console.log("Adding host entry")
+            console.log(nagios.CreateHostEntry(query['hostname'],query['ip']));
           }
           response.writeHead(200, {"Content-Type": "text/plain"});
           response.write("Added entry ");
